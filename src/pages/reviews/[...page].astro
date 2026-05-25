@@ -1,0 +1,176 @@
+---
+import Base from '../../layouts/Base.astro';
+import ReviewCard from '../../components/ReviewCard.astro';
+import StarRating from '../../components/StarRating.astro';
+import allReviews from '../../data/reviews.json';
+
+export async function getStaticPaths({ paginate }) {
+  return paginate(allReviews, { pageSize: 50 });
+}
+
+const { page } = Astro.props;
+const reviews = page.data;
+const totalReviews = allReviews.length;
+const avgRating = (allReviews.reduce((sum, r) => sum + r.rating, 0) / allReviews.length).toFixed(1);
+
+const platforms = [
+  { name: 'Google', count: allReviews.filter(r => r.platform === 'Google').length },
+  { name: 'Trustpilot', count: allReviews.filter(r => r.platform === 'Trustpilot').length },
+  { name: 'BBB', count: allReviews.filter(r => r.platform === 'BBB').length },
+];
+
+const isFirst = page.currentPage === 1;
+const pageTitle = isFirst
+  ? `NuggMD Patient Reviews — ${totalReviews} Verified Testimonials`
+  : `NuggMD Patient Reviews — Page ${page.currentPage} of ${page.lastPage}`;
+const pageDesc = isFirst
+  ? `Read ${totalReviews} verified patient reviews for NuggMD. ${avgRating}★ average rating across Google, Trustpilot, and BBB.`
+  : `NuggMD patient reviews — page ${page.currentPage} of ${page.lastPage}. Real testimonials from verified patients across 29 states.`;
+
+const reviewListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'NuggMD Patient Reviews',
+  numberOfItems: totalReviews,
+  itemListElement: reviews.map((review, index) => ({
+    '@type': 'ListItem',
+    position: (page.currentPage - 1) * 50 + index + 1,
+    item: {
+      '@type': 'Review',
+      reviewBody: review.body,
+      datePublished: review.date,
+      author: { '@type': 'Person', name: review.author },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: review.rating,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      itemReviewed: {
+        '@type': 'Organization',
+        name: 'NuggMD',
+        url: 'https://www.nuggmd.com',
+      },
+    },
+  })),
+};
+---
+
+<Base title={pageTitle} description={pageDesc} schema={reviewListSchema}>
+
+  <!-- Hero -->
+  <section class="bg-nugg-dark text-white py-14 px-4">
+    <div class="container-site text-center">
+      <h1 class="text-white mb-4">NuggMD Patient Reviews</h1>
+      <p class="text-nugg-tint text-lg max-w-2xl mx-auto mb-6">
+        Real, verified reviews from NuggMD patients across 29 states. Every review represents a real patient experience with our telemedicine platform.
+      </p>
+      <div class="flex items-center justify-center gap-4 flex-wrap">
+        <div class="flex items-center gap-2">
+          <StarRating rating={4.9} size="md" />
+          <span class="text-white font-bold">{avgRating} / 5 average</span>
+        </div>
+        <span class="text-nugg-tint">·</span>
+        <span class="text-nugg-tint">{totalReviews.toLocaleString()} verified reviews</span>
+        <span class="text-nugg-tint">·</span>
+        <span class="text-nugg-tint">Page {page.currentPage} of {page.lastPage}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform stats bar -->
+  <section class="bg-nugg-blue py-5 px-4">
+    <div class="container-site">
+      <div class="flex flex-wrap items-center justify-center gap-6 md:gap-12">
+        {platforms.map(({ name, count }) => {
+          const avg = (allReviews.filter(r => r.platform === name).reduce((s, r) => s + r.rating, 0) / count).toFixed(1);
+          return (
+            <div class="text-center">
+              <p class="text-white font-bold">{name}</p>
+              <p class="text-nugg-tint text-sm">{avg}★ avg · {count} reviews</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews grid -->
+  <section class="section-white py-16 px-4">
+    <div class="container-site">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" itemscope itemtype="https://schema.org/ItemList">
+        {reviews.map((review) => (
+          <ReviewCard review={review} />
+        ))}
+      </div>
+
+      <!-- Pagination -->
+      <nav class="flex items-center justify-center gap-3 flex-wrap pt-6 border-t border-nugg-block1" aria-label="Review pages">
+        {page.url.prev && (
+          <a href={page.url.prev} class="btn-secondary px-5 py-2 text-sm">← Previous</a>
+        )}
+
+        <div class="flex items-center gap-1 flex-wrap justify-center">
+          {Array.from({ length: page.lastPage }, (_, i) => i + 1).map((num) => {
+            const isActive = num === page.currentPage;
+            const url = num === 1 ? '/reviews/' : `/reviews/${num}/`;
+            return (
+              <a
+                href={url}
+                class={`w-9 h-9 flex items-center justify-center rounded-brand text-sm font-semibold transition-colors ${
+                  isActive
+                    ? 'bg-nugg-blue text-white'
+                    : 'text-nugg-blue hover:bg-nugg-block1'
+                }`}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {num}
+              </a>
+            );
+          })}
+        </div>
+
+        {page.url.next && (
+          <a href={page.url.next} class="btn-secondary px-5 py-2 text-sm">Next →</a>
+        )}
+      </nav>
+
+      <p class="text-center text-nugg-tint text-sm mt-4">
+        Showing reviews {(page.currentPage - 1) * 50 + 1}–{Math.min(page.currentPage * 50, totalReviews)} of {totalReviews.toLocaleString()}
+      </p>
+    </div>
+  </section>
+
+  <!-- External profiles -->
+  <section class="section-gray py-12 px-4">
+    <div class="container-site max-w-2xl mx-auto text-center">
+      <h2 class="mb-3">View Full Review Profiles</h2>
+      <p class="text-nugg-tint mb-6">
+        NuggMD maintains active review profiles across major platforms. All reviews are unedited and verified.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="https://www.google.com/search?q=NuggMD+reviews" target="_blank" rel="noopener noreferrer" class="badge badge-google py-2 px-5 text-sm font-semibold rounded-brand">Google Reviews</a>
+        <a href="https://www.trustpilot.com/review/www.nuggmd.com" target="_blank" rel="noopener noreferrer" class="badge badge-trustpilot py-2 px-5 text-sm font-semibold rounded-brand">Trustpilot</a>
+        <a href="https://www.bbb.org/us/ca/sacramento/profile/marijuana-doctors/nuggmd-1156-87112218" target="_blank" rel="noopener noreferrer" class="badge badge-bbb py-2 px-5 text-sm font-semibold rounded-brand">BBB Profile</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-nugg-blue text-white py-16 px-4 text-center">
+    <div class="container-site max-w-xl mx-auto">
+      <h2 class="text-white mb-4">Ready to Join 1.3M+ NuggMD Patients?</h2>
+      <p class="text-nugg-tint mb-6">
+        Fast, private, and HIPAA-compliant. You only pay if approved.
+      </p>
+      <a
+        href="https://app.nuggmd.com/v2/signup/email?promo_code=TRYME20&utm_campaign=reviewlandingpages"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary px-8 py-3"
+      >
+        Get 20% Off — Code TRYME20
+      </a>
+    </div>
+  </section>
+</Base>

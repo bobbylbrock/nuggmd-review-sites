@@ -1,0 +1,93 @@
+---
+import StarRating from './StarRating.astro';
+
+interface Review {
+  id: string;
+  author: string;
+  state: string;
+  rating: number;
+  platform: string;
+  date: string;
+  title: string;
+  body: string;
+  verified: boolean;
+}
+
+interface Props {
+  review: Review;
+}
+
+const { review } = Astro.props;
+
+const platformClass = {
+  Google: 'badge-google',
+  Trustpilot: 'badge-trustpilot',
+  BBB: 'badge-bbb',
+}[review.platform] ?? 'badge-google';
+
+const formattedDate = new Date(review.date).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<article
+  class="card flex flex-col h-full border-t-4 border-t-nugg-blue"
+  itemprop="review"
+  itemscope
+  itemtype="https://schema.org/Review"
+>
+  <div class="p-5 flex flex-col gap-3 flex-1">
+    <!-- Header row: stars + platform badge -->
+    <div class="flex items-center justify-between gap-2 flex-wrap">
+      <StarRating rating={review.rating} size="sm" />
+      <span class={`badge ${platformClass}`} itemprop="publisher">{review.platform}</span>
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-base font-semibold text-nugg-blue leading-snug" itemprop="name">
+      {review.title}
+    </h3>
+
+    <!-- Body -->
+    <p class="text-nugg-text text-sm leading-relaxed flex-1" itemprop="reviewBody">
+      {review.body}
+    </p>
+
+    <!-- Footer -->
+    <div class="flex items-center justify-between gap-2 pt-2 border-t border-nugg-block1 mt-auto">
+      <div class="flex items-center gap-2">
+        <!-- Author avatar placeholder -->
+        <div class="w-8 h-8 rounded-full bg-nugg-blue flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+          {review.author.charAt(0)}
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-nugg-text" itemprop="author" itemscope itemtype="https://schema.org/Person">
+            <span itemprop="name">{review.author}</span>
+          </p>
+          <p class="text-alt text-nugg-tint">{review.state}</p>
+        </div>
+      </div>
+      <div class="text-right">
+        <time class="text-alt text-nugg-tint" datetime={review.date} itemprop="datePublished">
+          {formattedDate}
+        </time>
+        {review.verified && (
+          <p class="text-alt text-nugg-red font-semibold">✓ Verified</p>
+        )}
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden schema fields -->
+  <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" class="hidden">
+    <meta itemprop="ratingValue" content={String(review.rating)} />
+    <meta itemprop="bestRating" content="5" />
+    <meta itemprop="worstRating" content="1" />
+  </div>
+  <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Organization" class="hidden">
+    <meta itemprop="name" content="NuggMD" />
+    <meta itemprop="url" content="https://www.nuggmd.com" />
+  </div>
+</article>

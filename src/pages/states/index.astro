@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+import faqs from '../../data/faqs.json';
+
+const stateEntries = faqs.filter((f) => f.state !== 'General');
+---
+
+<Base
+  title="Medical Cannabis Card FAQs by State — NuggMD"
+  description="Find state-specific medical cannabis card FAQs, eligibility requirements, and application guides for all 28 states where NuggMD operates."
+>
+  <!-- Hero -->
+  <section class="bg-nugg-dark text-white py-14 px-4">
+    <div class="container-site text-center">
+      <h1 class="text-white mb-4">Medical Cannabis FAQs by State</h1>
+      <p class="text-nugg-tint text-lg max-w-2xl mx-auto mb-6">
+        Select your state below to find detailed FAQs about qualifying conditions, costs, application requirements, and how to use your medical cannabis card where you live.
+      </p>
+      <a
+        href="https://app.nuggmd.com/v2/signup/email?promo_code=TRYME20&utm_campaign=reviewlandingpages"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary px-8 py-3"
+      >
+        Get 20% Off — Code TRYME20
+      </a>
+    </div>
+  </section>
+
+  <!-- Stats bar -->
+  <section class="bg-nugg-blue py-4 px-4">
+    <div class="container-site text-center">
+      <p class="text-white text-sm">
+        <span class="font-bold text-nugg-red">{stateEntries.length} states</span>
+        &nbsp;·&nbsp; State-specific eligibility, costs &amp; application guides
+        &nbsp;·&nbsp; Updated {new Date().getFullYear()}
+      </p>
+    </div>
+  </section>
+
+  <!-- State grid -->
+  <section class="section-white py-16 px-4">
+    <div class="container-site">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        {stateEntries.map((entry) => {
+          const faqCount = entry.sections.reduce((sum, s) => sum + s.faqs.length, 0);
+          return (
+            <a
+              href={`/states/${entry.slug}/`}
+              class="card flex flex-col p-5 hover:border-nugg-blue hover:shadow-md transition-all duration-200 group"
+            >
+              <div class="flex items-center gap-2 mb-2">
+                <span class="inline-block bg-nugg-blue text-white text-xs font-bold px-2 py-0.5 rounded group-hover:bg-nugg-red transition-colors">
+                  {entry.abbr}
+                </span>
+              </div>
+              <h3 class="text-nugg-blue text-base font-semibold mb-1 group-hover:text-nugg-shade transition-colors leading-tight">
+                {entry.state}
+              </h3>
+              <p class="text-alt text-nugg-tint mt-auto pt-2">
+                {faqCount} FAQs &nbsp;·&nbsp; {entry.sections.length} sections
+              </p>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- General FAQs link -->
+  <section class="section-gray py-12 px-4 text-center">
+    <div class="container-site max-w-xl mx-auto">
+      <h2 class="mb-3">Need General Information?</h2>
+      <p class="text-nugg-tint mb-6">
+        Visit our general FAQ page for questions about how NuggMD works, pricing, privacy, and more — not specific to any one state.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/faqs/" class="btn-primary">General FAQs</a>
+        <a
+          href="https://app.nuggmd.com/v2/signup/email?promo_code=TRYME20&utm_campaign=reviewlandingpages"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+        >
+          Get 20% Off — Code TRYME20
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

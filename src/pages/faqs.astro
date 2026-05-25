@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import FAQItem from '../components/FAQItem.astro';
+import faqs from '../data/faqs.json';
+
+const general = faqs.find((f) => f.state === 'General');
+const sections = general?.sections ?? [];
+
+// Build FAQPage schema
+const allFaqPairs = sections.flatMap((s) => s.faqs);
+const faqPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: allFaqPairs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+};
+---
+
+<Base
+  title="NuggMD FAQs — Medical Cannabis Card Questions Answered"
+  description="Get answers to the most common questions about NuggMD medical cannabis evaluations — how they work, costs, privacy, eligibility, and more."
+  schema={faqPageSchema}
+>
+  <!-- Hero -->
+  <section class="bg-nugg-dark text-white py-14 px-4">
+    <div class="container-site text-center">
+      <h1 class="text-white mb-4">Frequently Asked Questions</h1>
+      <p class="text-nugg-tint text-lg max-w-2xl mx-auto mb-6">
+        Everything you need to know about getting your medical cannabis card with NuggMD — from eligibility and costs to privacy and what happens after approval.
+      </p>
+      <a
+        href="https://app.nuggmd.com/v2/signup/email?promo_code=TRYME20&utm_campaign=reviewlandingpages"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary px-8 py-3"
+      >
+        Get 20% Off — Code TRYME20
+      </a>
+    </div>
+  </section>
+
+  <!-- Jump nav -->
+  <section class="bg-nugg-blue py-4 px-4">
+    <div class="container-site">
+      <div class="flex flex-wrap gap-3 justify-center">
+        {sections.map((section, i) => (
+          <a
+            href={`#section-${i}`}
+            class="text-sm text-white hover:text-nugg-red font-semibold transition-colors px-3 py-1 rounded-full border border-nugg-shade hover:border-nugg-red"
+          >
+            {section.title}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ sections -->
+  <section class="section-white py-16 px-4">
+    <div class="container-site max-w-3xl mx-auto">
+      {sections.map((section, i) => (
+        <div id={`section-${i}`} class="mb-14 scroll-mt-24">
+          <h2 class="mb-6 pb-3 border-b-2 border-nugg-block1">{section.title}</h2>
+          <div>
+            {section.faqs.map((faq) => (
+              <FAQItem question={faq.q} answer={faq.a} />
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <!-- CTA at bottom -->
+      <div class="bg-nugg-blue rounded-brand p-8 text-center text-white mt-8">
+        <h3 class="text-white mb-3">Still have questions?</h3>
+        <p class="text-nugg-tint mb-5">
+          NuggMD's patient support team is available 5 AM – 10 PM Pacific time on weekdays and 10 AM – 10 PM on weekends.
+        </p>
+        <a
+          href="https://app.nuggmd.com/v2/signup/email?promo_code=TRYME20&utm_campaign=reviewlandingpages"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+        >
+          Get 20% Off — Code TRYME20
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- State FAQ links -->
+  <section class="section-gray py-14 px-4">
+    <div class="container-site text-center">
+      <h2 class="mb-4">Looking for State-Specific FAQs?</h2>
+      <p class="text-nugg-tint max-w-lg mx-auto mb-8">
+        Every state has different rules. Find detailed FAQs for your state including qualifying conditions, costs, and how to use your card.
+      </p>
+      <a href="/states/" class="btn-primary">Browse State Pages</a>
+    </div>
+  </section>
+</Base>

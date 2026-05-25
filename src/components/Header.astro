@@ -1,0 +1,84 @@
+---
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Reviews', href: '/reviews/' },
+  { label: 'FAQs', href: '/faqs/' },
+  { label: 'States', href: '/states/' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="bg-nugg-dark shadow-md sticky top-0 z-50">
+  <div class="container-site">
+    <nav class="flex items-center justify-between py-3 gap-4" aria-label="Main navigation">
+      <!-- Logo -->
+      <a href="/" class="flex-shrink-0" aria-label="NuggMD Reviews - Home">
+        <img
+          src="https://www.nuggmd.com/wp-content/uploads/2023/05/NuggMD-White.webp"
+          alt="NuggMD"
+          width="140"
+          height="36"
+          loading="eager"
+          class="h-9 w-auto"
+        />
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden md:flex items-center gap-6">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class={`text-sm font-semibold transition-colors duration-150 ${
+              currentPath === link.href || currentPath.startsWith(link.href) && link.href !== '/'
+                ? 'text-nugg-red'
+                : 'text-white hover:text-nugg-tint'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="https://app.nuggmd.com/v2/signup/email?promo_code=TRYME20&utm_campaign=reviewlandingpages"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary text-sm ml-2"
+        >
+          Get Your Card
+        </a>
+      </div>
+
+      <!-- Mobile hamburger (pure CSS toggle) -->
+      <label for="nav-toggle" class="md:hidden cursor-pointer text-white p-1" aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </label>
+    </nav>
+
+    <!-- Mobile menu (CSS-only toggle) -->
+    <input type="checkbox" id="nav-toggle" class="hidden peer" />
+    <div class="peer-checked:flex hidden flex-col gap-1 pb-4 md:hidden border-t border-nugg-shade pt-3">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`text-sm font-semibold py-2 px-1 transition-colors duration-150 ${
+            currentPath === link.href
+              ? 'text-nugg-red'
+              : 'text-white hover:text-nugg-tint'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="https://app.nuggmd.com/v2/signup/email?promo_code=TRYME20&utm_campaign=reviewlandingpages"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary text-sm text-center mt-2"
+      >
+        Get Your Card
+      </a>
+    </div>
+  </div>
+</header>

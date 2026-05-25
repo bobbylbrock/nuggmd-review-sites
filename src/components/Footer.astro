@@ -1,0 +1,66 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-nugg-dark text-white pt-10 pb-6 mt-auto">
+  <div class="container-site">
+    <!-- Top row -->
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-nugg-shade">
+      <!-- Logo + tagline -->
+      <div class="flex flex-col gap-2">
+        <a href="/" aria-label="NuggMD Reviews Home">
+          <img
+            src="https://www.nuggmd.com/wp-content/uploads/2023/05/NuggMD-White.webp"
+            alt="NuggMD"
+            width="120"
+            height="31"
+            loading="lazy"
+            class="h-8 w-auto mb-1"
+          />
+        </a>
+        <p class="text-nugg-tint text-sm max-w-xs">
+          Patient testimonials and FAQs for NuggMD telemedicine services.
+        </p>
+        <p class="text-nugg-red text-sm font-semibold mt-1">
+          ★ Serving patients in 29 states
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="flex flex-col gap-2">
+        <p class="text-xs uppercase tracking-widest text-nugg-tint font-semibold mb-1">Quick Links</p>
+        <a href="/" class="text-sm text-nugg-block1 hover:text-white transition-colors">Home</a>
+        <a href="/reviews/" class="text-sm text-nugg-block1 hover:text-white transition-colors">Patient Reviews</a>
+        <a href="/faqs/" class="text-sm text-nugg-block1 hover:text-white transition-colors">General FAQs</a>
+        <a href="/states/" class="text-sm text-nugg-block1 hover:text-white transition-colors">State Pages</a>
+      </div>
+
+      <!-- CTA -->
+      <div class="flex flex-col gap-3 items-start md:items-end">
+        <p class="text-white font-semibold">Ready to get your medical card?</p>
+        <a
+          href="https://app.nuggmd.com/v2/signup/email?promo_code=TRYME20&utm_campaign=reviewlandingpages"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+        >
+          Get 20% Off — Code TRYME20
+        </a>
+        <div class="flex gap-4 mt-1">
+          <a href="https://www.nuggmd.com/privacy-policy" target="_blank" rel="noopener noreferrer" class="text-alt text-nugg-tint hover:text-white transition-colors">Privacy</a>
+          <a href="https://www.nuggmd.com/terms-of-service" target="_blank" rel="noopener noreferrer" class="text-alt text-nugg-tint hover:text-white transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom row -->
+    <div class="pt-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+      <p class="text-alt text-nugg-tint">
+        &copy; {year} NuggMD Reviews. Patient testimonials and FAQs for NuggMD telemedicine services.
+      </p>
+      <p class="text-alt text-nugg-tint max-w-lg text-right leading-relaxed">
+        This site is not operated by NuggMD. It contains verified patient reviews and publicly available FAQ information.
+      </p>
+    </div>
+  </div>
+</footer>
