@@ -95,6 +95,18 @@ const reviewListSchema = {
     </div>
   </section>
 
+  <!-- External profiles -->
+  <section class="section-gray py-8 px-4">
+    <div class="container-site max-w-2xl mx-auto text-center">
+      <p class="text-nugg-tint text-sm font-semibold uppercase tracking-widest mb-3">Verified on</p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="https://www.google.com/search?q=NuggMD+reviews" target="_blank" rel="noopener noreferrer" class="badge badge-google py-2 px-5 text-sm font-semibold rounded-brand">Google Reviews</a>
+        <a href="https://www.trustpilot.com/review/www.nuggmd.com" target="_blank" rel="noopener noreferrer" class="badge badge-trustpilot py-2 px-5 text-sm font-semibold rounded-brand">Trustpilot</a>
+        <a href="https://www.bbb.org/us/de/wilmington/profile/medical-marijuana-card/lfg-enterprises-inc-1216-1268676/customer-reviews" target="_blank" rel="noopener noreferrer" class="badge badge-bbb py-2 px-5 text-sm font-semibold rounded-brand">BBB Profile</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Reviews grid -->
   <section class="section-white py-16 px-4">
     <div class="container-site">
@@ -138,21 +150,6 @@ const reviewListSchema = {
       <p class="text-center text-nugg-tint text-sm mt-4">
         Showing reviews {(page.currentPage - 1) * 50 + 1}–{Math.min(page.currentPage * 50, totalReviews)} of {totalReviews.toLocaleString()}
       </p>
-    </div>
-  </section>
-
-  <!-- External profiles -->
-  <section class="section-gray py-12 px-4">
-    <div class="container-site max-w-2xl mx-auto text-center">
-      <h2 class="mb-3">View Full Review Profiles</h2>
-      <p class="text-nugg-tint mb-6">
-        NuggMD maintains active review profiles across major platforms. All reviews are unedited and verified.
-      </p>
-      <div class="flex flex-wrap gap-3 justify-center">
-        <a href="https://www.google.com/search?q=NuggMD+reviews" target="_blank" rel="noopener noreferrer" class="badge badge-google py-2 px-5 text-sm font-semibold rounded-brand">Google Reviews</a>
-        <a href="https://www.trustpilot.com/review/www.nuggmd.com" target="_blank" rel="noopener noreferrer" class="badge badge-trustpilot py-2 px-5 text-sm font-semibold rounded-brand">Trustpilot</a>
-        <a href="https://www.bbb.org/us/de/wilmington/profile/medical-marijuana-card/lfg-enterprises-inc-1216-1268676/customer-reviews" target="_blank" rel="noopener noreferrer" class="badge badge-bbb py-2 px-5 text-sm font-semibold rounded-brand">BBB Profile</a>
-      </div>
     </div>
   </section>
 

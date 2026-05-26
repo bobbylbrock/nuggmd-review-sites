@@ -95,12 +95,15 @@ a:hover {
 
 /* Buttons */
 .btn-primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: #D46870;
   color: #ffffff;
   font-family: 'Futura PT', 'Century Gothic', 'Trebuchet MS', sans-serif;
   font-weight: 700;
   font-size: 15px;
+  line-height: 1;
   padding: 0.75rem 1.75rem;
   border-radius: 10px;
   text-decoration: none;
@@ -117,12 +120,15 @@ a:hover {
 }
 
 .btn-secondary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: transparent;
   color: #1E4A7D;
   font-family: 'Futura PT', 'Century Gothic', 'Trebuchet MS', sans-serif;
   font-weight: 700;
   font-size: 15px;
+  line-height: 1;
   padding: 0.75rem 1.75rem;
   border-radius: 10px;
   text-decoration: none;
