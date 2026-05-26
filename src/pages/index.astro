@@ -9,7 +9,7 @@ import faqs from '../data/faqs.json';
 const featuredReviews = reviews.slice(0, 6);
 const generalFaqs = faqs.find((f) => f.state === 'General');
 const previewFaqs = generalFaqs?.sections[0]?.faqs.slice(0, 4) ?? [];
-const stateEntries = faqs.filter((f) => f.state !== 'General');
+const stateEntries = faqs.filter((f) => f.state !== 'General').sort((a, b) => a.state.localeCompare(b.state));
 
 const aggregateRatingSchema = {
   '@context': 'https://schema.org',
@@ -64,7 +64,7 @@ const aggregateRatingSchema = {
         >
           Get 20% Off — Use Code TRYME20
         </a>
-        <a href="/reviews/" class="btn-secondary text-base px-8 py-4 border-white text-white hover:bg-white hover:text-nugg-dark">
+        <a href="/reviews/" class="text-base px-8 py-4 inline-block font-bold border-2 border-white text-white rounded-brand hover:bg-white hover:text-nugg-dark transition-colors duration-200">
           Read All Reviews
         </a>
       </div>
