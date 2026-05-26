@@ -15,11 +15,12 @@ const avgRating = (allReviews.reduce((sum, r) => sum + r.rating, 0) / allReviews
 
 const googleReviews = allReviews.filter(r => r.platform === 'Google');
 const tpReviews = allReviews.filter(r => r.platform === 'Trustpilot');
+const bbbReviews = allReviews.filter(r => r.platform === 'BBB');
 
 const platforms = [
   { name: 'Google', count: googleReviews.length, avg: (googleReviews.reduce((s, r) => s + r.rating, 0) / googleReviews.length).toFixed(1) },
   { name: 'Trustpilot', count: tpReviews.length, avg: (tpReviews.reduce((s, r) => s + r.rating, 0) / tpReviews.length).toFixed(1) },
-  { name: 'BBB', count: 1815, avg: '4.93' },
+  { name: 'BBB', count: bbbReviews.length, avg: (bbbReviews.reduce((s, r) => s + r.rating, 0) / bbbReviews.length).toFixed(1) },
 ];
 
 const isFirst = page.currentPage === 1;
