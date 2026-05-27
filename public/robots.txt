@@ -13,4 +13,6 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://nuggmdreviews.com/sitemap.xml
+Sitemap: https://nuggmdreviews.com/sitemap-index.xml
+Sitemap: https://reviewsnuggmd.com/sitemap-index.xml
+Sitemap: https://nuggmd-reviews.com/sitemap-index.xml
