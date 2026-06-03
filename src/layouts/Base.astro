@@ -48,10 +48,11 @@ const schemaArray = schema
   : [organizationSchema];
 
 const fullTitle = title.includes('NuggMD') ? title : `${title} | NuggMD Reviews`;
+const variant   = import.meta.env.PUBLIC_SITE_VARIANT ?? 'primary';
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-variant={variant}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

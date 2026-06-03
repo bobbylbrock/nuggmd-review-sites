@@ -5,9 +5,23 @@ import StarRating from '../../components/StarRating.astro';
 import allReviews from '../../data/reviews.json';
 
 export async function getStaticPaths({ paginate }) {
-  return paginate(allReviews, { pageSize: 50 });
+  const variant = import.meta.env.PUBLIC_SITE_VARIANT ?? 'primary';
+  let sorted = [...allReviews];
+
+  if (variant === 'blue-red') {
+    sorted.sort((a, b) => b.rating - a.rating || new Date(b.date).getTime() - new Date(a.date).getTime());
+  } else if (variant === 'light') {
+    const order: Record<string, number> = { Google: 0, Trustpilot: 1, BBB: 2 };
+    sorted.sort((a, b) =>
+      (order[a.platform] ?? 3) - (order[b.platform] ?? 3) ||
+      new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+  }
+
+  return paginate(sorted, { pageSize: 50 });
 }
 
+const variant = import.meta.env.PUBLIC_SITE_VARIANT ?? 'primary';
 const { page } = Astro.props;
 const reviews = page.data;
 const totalReviews = allReviews.length;
@@ -24,11 +38,34 @@ const platforms = [
 ];
 
 const isFirst = page.currentPage === 1;
+
+const h1s: Record<string, string> = {
+  primary:   'NuggMD Patient Reviews',
+  'blue-red': 'Browse All NuggMD Patient Reviews',
+  light:     'NuggMD Patient Testimonials',
+};
+const ctaH2s: Record<string, string> = {
+  primary:   'Ready to Join 1.3M+ NuggMD Patients?',
+  'blue-red': 'Join Over 1.3 Million Patients Nationwide',
+  light:     'Start Your Medical Card Application Today',
+};
+const reviewsH1  = h1s[variant]   ?? h1s.primary;
+const reviewsCta = ctaH2s[variant] ?? ctaH2s.primary;
+
 const pageTitle = isFirst
-  ? `NuggMD Patient Reviews — ${totalReviews} Verified Testimonials`
-  : `NuggMD Patient Reviews — Page ${page.currentPage} of ${page.lastPage}`;
+  ? variant === 'light'
+    ? `NuggMD Patient Testimonials — ${totalReviews} Real Experiences`
+    : variant === 'blue-red'
+      ? `NuggMD Reviews — ${totalReviews} Verified Patient Testimonials`
+      : `NuggMD Patient Reviews — ${totalReviews} Verified Testimonials`
+  : `${reviewsH1} — Page ${page.currentPage} of ${page.lastPage}`;
+
 const pageDesc = isFirst
-  ? `Read ${totalReviews} verified patient reviews for NuggMD. ${avgRating}★ average rating across Google, Trustpilot, and BBB.`
+  ? variant === 'light'
+    ? `Browse ${totalReviews} real NuggMD patient testimonials. ${avgRating}★ average across Google, Trustpilot, and BBB. HIPAA-compliant telemedicine in 28 states.`
+    : variant === 'blue-red'
+      ? `${totalReviews} verified NuggMD patient reviews sorted by highest rating. ${avgRating}★ average across Google, Trustpilot, and BBB.`
+      : `Read ${totalReviews} verified patient reviews for NuggMD. ${avgRating}★ average rating across Google, Trustpilot, and BBB.`
   : `NuggMD patient reviews — page ${page.currentPage} of ${page.lastPage}. Real testimonials from verified patients across 28 states.`;
 
 const reviewListSchema = {
@@ -65,7 +102,7 @@ const reviewListSchema = {
   <!-- Hero -->
   <section class="bg-nugg-dark text-white py-14 px-4">
     <div class="container-site text-center">
-      <h1 class="text-white mb-4">NuggMD Patient Reviews</h1>
+      <h1 class="text-white mb-4">{reviewsH1}</h1>
       <p class="text-nugg-tint text-lg max-w-2xl mx-auto mb-6">
         Real, verified reviews from NuggMD patients across 28 states. Every review represents a real patient experience with our telemedicine platform.
       </p>
@@ -157,7 +194,7 @@ const reviewListSchema = {
   <!-- CTA -->
   <section class="bg-nugg-blue text-white py-16 px-4 text-center">
     <div class="container-site max-w-xl mx-auto">
-      <h2 class="text-white mb-4">Ready to Join 1.3M+ NuggMD Patients?</h2>
+      <h2 class="text-white mb-4">{reviewsCta}</h2>
       <p class="text-nugg-tint mb-6">
         Fast, private, and HIPAA-compliant. You only pay if approved.
       </p>

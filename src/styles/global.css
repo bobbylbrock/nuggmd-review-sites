@@ -2,7 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Futura PT font declaration */
+/* ============================================================
+   CSS CUSTOM PROPERTIES — default = nuggmdreviews.com (primary)
+   Override per site via data-variant on <html>
+   ============================================================ */
+:root {
+  --nugg-blue:   #1E4A7D;
+  --nugg-red:    #D46870;
+  --nugg-tint:   #7892b1;
+  --nugg-dark:   #0f253f;
+  --nugg-shade:  #183b64;
+  --nugg-shade1: #aa535a;
+  --nugg-tint1:  #dd868d;
+  --nugg-block1: #D2DBE5;
+  --nugg-text:   #060f19;
+  --faq-hover:   #f5f8fb;
+}
+
+/* ---- nuggmd-reviews.com: blue ↔ red swap ---- */
+html[data-variant="blue-red"] {
+  --nugg-blue:   #9e2d35;
+  --nugg-red:    #1E4A7D;
+  --nugg-tint:   #9e7070;
+  --nugg-dark:   #2d090c;
+  --nugg-shade:  #501319;
+  --nugg-shade1: #183b64;
+  --nugg-tint1:  #7892b1;
+  --nugg-block1: #e5d2d3;
+  --nugg-text:   #060f19;
+  --faq-hover:   #fff5f5;
+}
+
+/* ---- reviewsnuggmd.com: lightened palette, white → #404040 ---- */
+html[data-variant="light"] {
+  --nugg-blue:   #3a72b8;
+  --nugg-red:    #d46870;
+  --nugg-tint:   #506880;
+  --nugg-dark:   #ebf4ff;
+  --nugg-shade:  #d4e8f8;
+  --nugg-shade1: #c9607a;
+  --nugg-tint1:  #e8949c;
+  --nugg-block1: #c8d8ec;
+  --nugg-text:   #404040;
+  --faq-hover:   #f0f6ff;
+}
+
+/* White text/borders become dark gray on the light variant */
+html[data-variant="light"] .text-white                  { color: #404040 !important; }
+html[data-variant="light"] .border-white                { border-color: #6b7280 !important; }
+html[data-variant="light"] .hover\:bg-white:hover       { background-color: #f8fafc !important; }
+html[data-variant="light"] .hover\:text-nugg-dark:hover { color: #404040 !important; }
+
+
+/* ============================================================
+   FONT DECLARATIONS
+   ============================================================ */
 @font-face {
   font-family: 'Futura PT';
   font-style: normal;
@@ -10,7 +64,6 @@
   font-display: swap;
   src: local('Futura PT Light'), local('FuturaPT-Light');
 }
-
 @font-face {
   font-family: 'Futura PT';
   font-style: normal;
@@ -18,7 +71,6 @@
   font-display: swap;
   src: local('Futura PT Book'), local('FuturaPT-Book');
 }
-
 @font-face {
   font-family: 'Futura PT';
   font-style: normal;
@@ -26,7 +78,6 @@
   font-display: swap;
   src: local('Futura PT Demi'), local('FuturaPT-Demi');
 }
-
 @font-face {
   font-family: 'Futura PT';
   font-style: normal;
@@ -35,39 +86,40 @@
   src: local('Futura PT Bold'), local('FuturaPT-Bold');
 }
 
-/* Base styles */
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
 html {
   font-family: 'Futura PT', 'Century Gothic', 'Trebuchet MS', sans-serif;
-  color: #060f19;
   scroll-behavior: smooth;
 }
 
 body {
   font-size: 15px;
   line-height: 1.6;
-  color: #060f19;
+  color: var(--nugg-text);
   background: #ffffff;
 }
 
-/* Typography scale */
 h1 {
-  font-size: clamp(2rem, 5vw, 3.125rem); /* 50pt */
+  font-size: clamp(2rem, 5vw, 3.125rem);
   font-weight: 700;
-  color: #1E4A7D;
+  color: var(--nugg-blue);
   line-height: 1.15;
 }
 
 h2 {
-  font-size: clamp(1.5rem, 3.5vw, 2.25rem); /* 36pt */
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
   font-weight: 700;
-  color: #1E4A7D;
+  color: var(--nugg-blue);
   line-height: 1.2;
 }
 
 h3 {
-  font-size: clamp(1.1rem, 2.5vw, 1.5625rem); /* 25pt */
+  font-size: clamp(1.1rem, 2.5vw, 1.5625rem);
   font-weight: 600;
-  color: #1E4A7D;
+  color: var(--nugg-blue);
   line-height: 1.3;
 }
 
@@ -82,23 +134,25 @@ p {
   font-weight: 300;
 }
 
-/* Links */
 a {
-  color: #1E4A7D;
+  color: var(--nugg-blue);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #183b64;
+  color: var(--nugg-shade);
 }
 
-/* Buttons */
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #D46870;
+  background-color: var(--nugg-red);
   color: #ffffff;
   font-family: 'Futura PT', 'Century Gothic', 'Trebuchet MS', sans-serif;
   font-weight: 700;
@@ -114,7 +168,7 @@ a:hover {
 }
 
 .btn-primary:hover {
-  background-color: #aa535a;
+  background-color: var(--nugg-shade1);
   color: #ffffff;
   transform: translateY(-1px);
 }
@@ -124,7 +178,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  color: #1E4A7D;
+  color: var(--nugg-blue);
   font-family: 'Futura PT', 'Century Gothic', 'Trebuchet MS', sans-serif;
   font-weight: 700;
   font-size: 15px;
@@ -132,41 +186,41 @@ a:hover {
   padding: 0.75rem 1.75rem;
   border-radius: 10px;
   text-decoration: none;
-  border: 2px solid #1E4A7D;
+  border: 2px solid var(--nugg-blue);
   transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
-  background-color: #1E4A7D;
+  background-color: var(--nugg-blue);
   color: #ffffff;
 }
 
-/* Cards */
+
+/* ============================================================
+   CARDS & SECTIONS
+   ============================================================ */
 .card {
   background: #ffffff;
-  border: 1px solid #D2DBE5;
+  border: 1px solid var(--nugg-block1);
   border-radius: 10px;
   box-shadow: 0 2px 12px rgba(30, 74, 125, 0.08);
   overflow: hidden;
 }
 
-/* Section alternating backgrounds */
-.section-white {
-  background-color: #ffffff;
-}
+.section-white { background-color: #ffffff; }
+.section-gray  { background-color: #F0F0F0; }
 
-.section-gray {
-  background-color: #F0F0F0;
-}
 
-/* FAQ accordion */
+/* ============================================================
+   FAQ ACCORDION
+   ============================================================ */
 details {
   border-radius: 8px;
   overflow: hidden;
 }
 
 details[open] summary {
-  border-bottom: 1px solid #D2DBE5;
+  border-bottom: 1px solid var(--nugg-block1);
   border-radius: 8px 8px 0 0;
 }
 
@@ -180,42 +234,32 @@ summary {
   padding: 1rem 1.25rem;
   background-color: #ffffff;
   font-weight: 600;
-  color: #1E4A7D;
+  color: var(--nugg-blue);
   font-size: 15px;
   border-radius: 8px;
   transition: background-color 0.15s ease;
   user-select: none;
 }
 
-summary::-webkit-details-marker {
-  display: none;
-}
-
-summary:hover {
-  background-color: #f5f8fb;
-}
+summary::-webkit-details-marker { display: none; }
+summary:hover { background-color: var(--faq-hover); }
 
 details .faq-answer {
   padding: 1rem 1.25rem;
   background: #ffffff;
-  color: #060f19;
+  color: var(--nugg-text);
   font-size: 15px;
   line-height: 1.65;
   border-radius: 0 0 8px 8px;
 }
 
-/* Star rating */
-.stars {
-  color: #F4AC38;
-  letter-spacing: 0.05em;
-  font-size: 1.1rem;
-}
 
-.stars .empty {
-  color: #D2DBE5;
-}
+/* ============================================================
+   STARS & BADGES
+   ============================================================ */
+.stars { color: #F4AC38; letter-spacing: 0.05em; font-size: 1.1rem; }
+.stars .empty { color: var(--nugg-block1); }
 
-/* Platform badge */
 .badge {
   display: inline-block;
   padding: 0.2rem 0.6rem;
@@ -226,22 +270,14 @@ details .faq-answer {
   text-transform: uppercase;
 }
 
-.badge-google {
-  background-color: #e8f0fe;
-  color: #1a73e8;
-}
+.badge-google     { background-color: #e8f0fe; color: #1a73e8; }
+.badge-trustpilot { background-color: #e9f7f1; color: #00b67a; }
+.badge-bbb        { background-color: #fff3e0; color: #e65100; }
 
-.badge-trustpilot {
-  background-color: #e9f7f1;
-  color: #00b67a;
-}
 
-.badge-bbb {
-  background-color: #fff3e0;
-  color: #e65100;
-}
-
-/* Responsive container */
+/* ============================================================
+   LAYOUT
+   ============================================================ */
 .container-site {
   max-width: 1200px;
   margin: 0 auto;
@@ -249,7 +285,5 @@ details .faq-answer {
 }
 
 @media (min-width: 768px) {
-  .container-site {
-    padding: 0 2rem;
-  }
+  .container-site { padding: 0 2rem; }
 }

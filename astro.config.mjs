@@ -5,5 +5,5 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   integrations: [tailwind(), sitemap()],
   output: 'static',
-  site: 'https://nuggmdreviews.com',
+  site: process.env.PUBLIC_SITE_URL ?? 'https://nuggmdreviews.com',
 });
