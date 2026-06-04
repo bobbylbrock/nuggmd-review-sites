@@ -62,11 +62,11 @@ const pageTitle = isFirst
 
 const pageDesc = isFirst
   ? variant === 'light'
-    ? `Browse ${totalReviews} real NuggMD patient testimonials. ${avgRating}★ average across Google, Trustpilot, and BBB. HIPAA-compliant telemedicine in 28 states.`
+    ? `Browse ${totalReviews} real NuggMD patient testimonials. ${avgRating}★ average across Google, Trustpilot, and BBB. HIPAA-compliant telemedicine in 31 states.`
     : variant === 'blue-red'
       ? `${totalReviews} verified NuggMD patient reviews sorted by highest rating. ${avgRating}★ average across Google, Trustpilot, and BBB.`
       : `Read ${totalReviews} verified patient reviews for NuggMD. ${avgRating}★ average rating across Google, Trustpilot, and BBB.`
-  : `NuggMD patient reviews — page ${page.currentPage} of ${page.lastPage}. Real testimonials from verified patients across 28 states.`;
+  : `NuggMD patient reviews — page ${page.currentPage} of ${page.lastPage}. Real testimonials from verified patients across 31 states.`;
 
 const reviewListSchema = {
   '@context': 'https://schema.org',
@@ -104,7 +104,7 @@ const reviewListSchema = {
     <div class="container-site text-center">
       <h1 class="text-white mb-4">{reviewsH1}</h1>
       <p class="text-nugg-tint text-lg max-w-2xl mx-auto mb-6">
-        Real, verified reviews from NuggMD patients across 28 states. Every review represents a real patient experience with our telemedicine platform.
+        Real, verified reviews from NuggMD patients across 31 states. Every review represents a real patient experience with our telemedicine platform.
       </p>
       <div class="flex items-center justify-center gap-4 flex-wrap">
         <div class="flex items-center gap-2">

@@ -5838,5 +5838,188 @@
         ]
       }
     ]
+  },
+  {
+    "state": "Kentucky",
+    "abbr": "KY",
+    "slug": "kentucky",
+    "url": "https://www.nuggmd.com/medical-card/kentucky",
+    "sections": [
+      {
+        "title": "Frequently asked. Frequently answered.",
+        "faqs": [
+          {
+            "q": "What are the requirements to get a medical marijuana card in Kentucky?",
+            "a": "To qualify, you must: be a permanent Kentucky resident, not have a disqualifying criminal offense, be diagnosed with a qualifying medical condition by a licensed Kentucky practitioner, be entered into the patient and caregiver registry by your practitioner, and obtain a Registry ID card."
+          },
+          {
+            "q": "What conditions qualify for a medical marijuana card in Kentucky?",
+            "a": "Qualifying conditions include: any type or form of cancer regardless of stage, chronic or debilitating pain, epilepsy or seizure disorders, multiple sclerosis/muscle spasms/spasticity, chronic nausea or cyclical vomiting syndrome resistant to conventional treatments, PTSD, and any other medical condition or disease determined by the Kentucky Center for Cannabis."
+          },
+          {
+            "q": "What if my medical condition isn't listed? Am I still eligible?",
+            "a": "You might be eligible in the future. Kentucky allows the Kentucky Center for Cannabis to recommend additional qualifying conditions."
+          },
+          {
+            "q": "What are the benefits of a medical marijuana card in Kentucky?",
+            "a": "Benefits include legal access to cannabis, safe and tested products, legal protections for cardholders, and personalized medical guidance from licensed practitioners."
+          },
+          {
+            "q": "How much does it cost to get my medical marijuana card in Kentucky?",
+            "a": "Kentucky charges a $25 annual fee for both patient and caregiver medical marijuana card applications. This is separate from evaluation costs."
+          },
+          {
+            "q": "Will health insurance cover the cost of my medical marijuana?",
+            "a": "No. Cannabis remains federally illegal, so most insurance companies won't cover cannabis-based treatments."
+          },
+          {
+            "q": "How long does it take to get a medical marijuana card in Kentucky?",
+            "a": "Evaluation with NuggMD is fast. The state can take up to 30 days to process your application, with the card issued electronically upon approval."
+          },
+          {
+            "q": "What if I am not approved for medical marijuana?",
+            "a": "With NuggMD, unapproved applicants receive automatic refunds."
+          },
+          {
+            "q": "What is NuggMD's refund policy?",
+            "a": "If unapproved, evaluation is free. If you cancel before evaluation, there's a $10 processing fee. Once approved, refunds aren't available. Processing takes 3-5 business days."
+          },
+          {
+            "q": "Can I renew my Kentucky medical card with NuggMD if I was seen by a different practitioner?",
+            "a": "Yes. You can see any licensed Kentucky practitioner for renewal, regardless of initial evaluation source."
+          },
+          {
+            "q": "Can I use my Kentucky med card in other states?",
+            "a": "This depends on the state to which you're traveling. Each state has different rules regarding reciprocity."
+          },
+          {
+            "q": "Can out of state residents get a medical card in Kentucky?",
+            "a": "Yes, if you're at least 21, possess a valid out-of-state registry ID card, and have documentation of a qualifying condition under Kentucky law."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "state": "Hawaii",
+    "abbr": "HI",
+    "slug": "hawaii",
+    "url": "https://www.nuggmd.com/medical-card/hawaii",
+    "sections": [
+      {
+        "title": "Frequently asked. Frequently answered.",
+        "faqs": [
+          {
+            "q": "Who qualifies for medical marijuana in Hawaii?",
+            "a": "In Hawaii, residents approved by a physician or APRN and non-residents with a valid home state medical marijuana card are eligible. Requirements include valid government-issued ID/passport and a licensed practitioner's recommendation."
+          },
+          {
+            "q": "What conditions qualify for medical marijuana in Hawaii?",
+            "a": "Physicians and APRNs may recommend cannabis for any condition they believe would benefit from its use. Common conditions include AIDS, ALS, cachexia, cancer, epilepsy, glaucoma, lupus, MS, HIV positive status, PTSD, rheumatoid arthritis, seizures, severe pain, severe nausea, and severe muscle spasms."
+          },
+          {
+            "q": "What if my medical condition isn't listed? Am I still eligible?",
+            "a": "Yes. Hawaii passed legislation that allows physicians and APRNs to recommend medical cannabis for any condition they believe would benefit from its use."
+          },
+          {
+            "q": "What are the benefits of a medical marijuana card in Hawaii?",
+            "a": "Having a Hawaii 329 registration — a Hawaii medical card — is the only way to access medicinal cannabis."
+          },
+          {
+            "q": "How much does it cost to get my medical marijuana card in Hawaii?",
+            "a": "The initial state application fee is $38.50; renewal costs the same or $77 for two-year registration. Medical evaluation at NuggMD costs $98."
+          },
+          {
+            "q": "Will health insurance cover the cost of my medical marijuana?",
+            "a": "No. Health insurance won't cover costs because cannabis remains federally illegal."
+          },
+          {
+            "q": "How long does it take to get a medical marijuana card in Hawaii with NuggMD?",
+            "a": "NuggMD connects patients with a qualified Hawaii medical cannabis doctor in as little as 15 minutes, with no appointment needed."
+          },
+          {
+            "q": "What if I am not approved for medical marijuana?",
+            "a": "If you're not approved by the practitioner, you get your money back."
+          },
+          {
+            "q": "What is NuggMD's refund policy?",
+            "a": "If unapproved, evaluation is free. Cancellation before evaluation incurs a $10 processing fee. Post-approval refunds unavailable. Processing takes 3-5 business days."
+          },
+          {
+            "q": "Can I renew my med card with NuggMD if I was seen by a different doctor?",
+            "a": "You must maintain an ongoing relationship with the same licensed practitioner for two-year renewals."
+          },
+          {
+            "q": "Can I use my Hawaii med card in other states?",
+            "a": "Depends on destination state rules. Some states don't allow reciprocity."
+          },
+          {
+            "q": "Can I get a med card without a Hawaii state ID?",
+            "a": "Yes, with valid government-issued ID. Residents need proof of residency. Out-of-state residents can apply for temporary cards."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "state": "North Dakota",
+    "abbr": "ND",
+    "slug": "north-dakota",
+    "url": "https://www.nuggmd.com/medical-card/north-dakota",
+    "sections": [
+      {
+        "title": "Frequently asked. Frequently answered.",
+        "faqs": [
+          {
+            "q": "Who qualifies for medical marijuana in North Dakota?",
+            "a": "North Dakota residents with qualifying medical conditions and a licensed practitioner's written recommendation are eligible for the state's medical cannabis program."
+          },
+          {
+            "q": "What conditions qualify for medical marijuana in North Dakota?",
+            "a": "Listed conditions include AIDS, Alzheimer's agitation, ALS, anxiety disorder, anorexia nervosa, autism spectrum disorder, brain injury, bulimia nervosa, cancer, Crohn's disease, cirrhosis from hepatitis C, Ehlers-Danlos syndrome, endometriosis, epilepsy, fibromyalgia, glaucoma, interstitial cystitis, migraine, neuropathy, HIV positive status, PTSD, rheumatoid arthritis, spinal stenosis/chronic back pain, terminal illness, and Tourette syndrome. Also qualifications include chronic conditions producing cachexia, severe debilitating pain unresponsive to prior treatment, intractable nausea, seizures, or severe muscle spasms."
+          },
+          {
+            "q": "What if my medical condition isn't listed? Am I still eligible?",
+            "a": "North Dakota's Department of Health and Human Services accepts petitions from residents to add new illnesses to the state's list of qualifying conditions."
+          },
+          {
+            "q": "What are the benefits of a medical marijuana card in North Dakota?",
+            "a": "Having a medical cannabis card is currently the only way to access legal marijuana in North Dakota. As such, it carries certain legal protections that aren't available to cannabis consumers without a med card."
+          },
+          {
+            "q": "How much does it cost to get my medical marijuana card in North Dakota?",
+            "a": "The state requires a $40 fee for patient applications. The costs of required practitioner visits are dependent on your medical care coverage."
+          },
+          {
+            "q": "Will health insurance cover the cost of my medical marijuana?",
+            "a": "Cannabis is still federally illegal. Because of this many health insurance companies will not cover the costs associated with medical cannabis treatment."
+          },
+          {
+            "q": "How long does it take to get a medical marijuana card in North Dakota with NuggMD?",
+            "a": "NuggMD connects patients with a North Dakota doctor online in as little as 15 minutes, with no appointment necessary. Once you submit the state's application and payment, it can take up to 30 days for the state to process your application."
+          },
+          {
+            "q": "Can I renew my med card with NuggMD if I was seen by a different practitioner last year?",
+            "a": "Yes. You can see any state-approved practitioner to assess your qualifying condition, discuss medical cannabis treatment, and renew your medical cannabis certification."
+          },
+          {
+            "q": "What if I am not approved for medical marijuana?",
+            "a": "If you're not approved for medical cannabis, you get your money back automatically. We believe everyone deserves access to a qualified medical cannabis doctor, and the cost of an evaluation shouldn't be a barrier."
+          },
+          {
+            "q": "What is NuggMD's refund policy?",
+            "a": "Approval denial results in a full refund. Cancellations before evaluation incur a $10 processing fee. Post-approval refunds aren't available. Processing takes 3-5 business days after refund initiation."
+          },
+          {
+            "q": "Can I use my North Dakota med card in other states?",
+            "a": "This depends on the state to which you're traveling. Each state has different rules regarding reciprocity, and some don't allow it at all."
+          },
+          {
+            "q": "Can I get a med card without a North Dakota state ID?",
+            "a": "The state accepts a valid North Dakota-issued driver's license or ID card to submit your application."
+          }
+        ]
+      }
+    ]
   }
 ]
