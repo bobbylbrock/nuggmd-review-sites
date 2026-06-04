@@ -33,6 +33,9 @@ html[data-variant="blue-red"] {
   --faq-hover:   #fff5f5;
 }
 
+html[data-variant="blue-red"] .bg-nugg-dark .text-nugg-red,
+html[data-variant="blue-red"] .bg-nugg-blue .text-nugg-red { color: #90D6FF; }
+
 /* ---- reviewsnuggmd.com: lightened palette, white → #404040 ---- */
 html[data-variant="light"] {
   --nugg-blue:   #3a72b8;
