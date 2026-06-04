@@ -23,7 +23,7 @@
 html[data-variant="blue-red"] {
   --nugg-blue:   #9e2d35;
   --nugg-red:    #1E4A7D;
-  --nugg-tint:   #ffffff;
+  --nugg-tint:   #9e7070;
   --nugg-dark:   #2d090c;
   --nugg-shade:  #501319;
   --nugg-shade1: #183b64;
@@ -35,6 +35,9 @@ html[data-variant="blue-red"] {
 
 html[data-variant="blue-red"] .bg-nugg-dark .text-nugg-red,
 html[data-variant="blue-red"] .bg-nugg-blue .text-nugg-red { color: #90D6FF; }
+
+html[data-variant="blue-red"] .bg-nugg-dark .text-nugg-tint,
+html[data-variant="blue-red"] .bg-nugg-blue .text-nugg-tint { color: rgba(255,255,255,0.8); }
 
 /* ---- reviewsnuggmd.com: lightened palette, white → #404040 ---- */
 html[data-variant="light"] {
