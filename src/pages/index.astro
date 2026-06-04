@@ -105,8 +105,30 @@ const aggregateRatingSchema = {
   schema={aggregateRatingSchema}
 >
   <!-- ========== HERO ========== -->
+  {variant === 'blue-red' ? (
   <section class="bg-nugg-dark text-white py-20 px-4 relative overflow-hidden">
-    <!-- Background decoration -->
+    <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 70% 50%, #52B781 0%, transparent 60%), radial-gradient(circle at 20% 80%, #1E4A7D 0%, transparent 50%);"></div>
+    <div class="container-site relative z-10">
+      <div class="flex items-center gap-3 mb-8">
+        <StarRating rating={4.9} size="lg" />
+        <div>
+          <p class="text-white font-bold text-xl">4.9 / 5</p>
+          <p class="text-nugg-tint text-sm">{verifiedDisplay} verified reviews</p>
+        </div>
+      </div>
+      <h1 class="text-white mb-4 max-w-3xl">
+        {copy.h1}
+      </h1>
+      <p class="text-nugg-tint text-lg max-w-2xl mb-8 leading-relaxed">
+        {copy.heroP}
+      </p>
+      <a href="/reviews/" class="text-base px-8 py-4 inline-block font-bold border-2 border-white text-white rounded-brand hover:bg-white hover:text-nugg-dark transition-colors duration-200">
+        Read All Reviews
+      </a>
+    </div>
+  </section>
+  ) : (
+  <section class="bg-nugg-dark text-white py-20 px-4 relative overflow-hidden">
     <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 70% 50%, #52B781 0%, transparent 60%), radial-gradient(circle at 20% 80%, #1E4A7D 0%, transparent 50%);"></div>
     <div class="container-site relative z-10 text-center">
       <div class="inline-flex items-center gap-2 bg-nugg-shade rounded-full px-4 py-2 mb-6">
@@ -118,8 +140,6 @@ const aggregateRatingSchema = {
       <p class="text-nugg-tint text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
         {copy.heroP}
       </p>
-
-      <!-- Star rating display -->
       <div class="flex items-center justify-center gap-3 mb-8">
         <StarRating rating={4.9} size="lg" />
         <div class="text-left">
@@ -127,7 +147,6 @@ const aggregateRatingSchema = {
           <p class="text-nugg-tint text-sm">{verifiedDisplay} verified reviews</p>
         </div>
       </div>
-
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="https://app.nuggmd.com/v2/signup/email?promo_code=TRYME20&utm_campaign=reviewlandingpages"
@@ -143,6 +162,7 @@ const aggregateRatingSchema = {
       </div>
     </div>
   </section>
+  )}
 
   <!-- ========== TRUST BAR ========== -->
   <section class="bg-nugg-blue py-4 text-white">
