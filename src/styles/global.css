@@ -23,15 +23,17 @@
 html[data-variant="blue-red"] {
   --nugg-blue:   #9e2d35;
   --nugg-red:    #1E4A7D;
-  --nugg-tint:   #9e7070;
+  --nugg-tint:   #90D6FF;
   --nugg-dark:   #2d090c;
   --nugg-shade:  #501319;
   --nugg-shade1: #183b64;
-  --nugg-tint1:  #7892b1;
+  --nugg-tint1:  #90D6FF;
   --nugg-block1: #e5d2d3;
   --nugg-text:   #060f19;
   --faq-hover:   #fff5f5;
 }
+
+html[data-variant="blue-red"] .opacity-80 { opacity: 1; }
 
 /* ---- reviewsnuggmd.com: lightened palette, white → #404040 ---- */
 html[data-variant="light"] {
