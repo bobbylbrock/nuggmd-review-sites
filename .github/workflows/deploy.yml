@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  # ── nuggmdreviews.com — primary (no variant) ──────────────────────────────
+  # ── nuggmdreviews.com — primary (main branch) ────────────────────────────
   deploy-primary:
     runs-on: ubuntu-latest
     steps:
@@ -28,9 +28,9 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name nuggmd-review-sites
+          command: pages deploy dist --project-name nuggmd-review-sites --branch main
 
-  # ── nuggmd-reviews.com — blue-red variant ────────────────────────────────
+  # ── nuggmd-reviews.com — blue-red variant (blue-red branch) ──────────────
   deploy-blue-red:
     runs-on: ubuntu-latest
     steps:
@@ -55,9 +55,9 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name nuggmd-reviews-bluered
+          command: pages deploy dist --project-name nuggmd-review-sites --branch blue-red
 
-  # ── reviewsnuggmd.com — light variant ────────────────────────────────────
+  # ── reviewsnuggmd.com — light variant (light branch) ─────────────────────
   deploy-light:
     runs-on: ubuntu-latest
     steps:
@@ -82,4 +82,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name reviewsnuggmd
+          command: pages deploy dist --project-name nuggmd-review-sites --branch light
