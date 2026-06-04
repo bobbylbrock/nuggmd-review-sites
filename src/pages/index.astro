@@ -29,28 +29,58 @@ const verifiedDisplay = `${(Math.floor(verifiedCount / 100) * 100).toLocaleStrin
 // Per-variant copy
 const copy = {
   primary: {
-    metaTitle: 'NuggMD Patient Reviews — Trusted Medical Cannabis Telemedicine',
-    metaDesc:  `Read ${verifiedDisplay} verified patient reviews for NuggMD — all from recent years across Google, Trustpilot, and BBB. 4.9★ average. NuggMD has earned 10,000+ reviews since founding.`,
-    h1:        'Real Reviews from Real NuggMD Patients',
-    h2Reviews: 'What Patients Are Saying',
-    h2Faq:     'Common Questions About NuggMD',
-    h2Cta:     'Ready to Get Your Medical Card?',
+    metaTitle:    'NuggMD Patient Reviews — Trusted Medical Cannabis Telemedicine',
+    metaDesc:     `Read ${verifiedDisplay} verified patient reviews for NuggMD — all from recent years across Google, Trustpilot, and BBB. 4.9★ average. NuggMD has earned 10,000+ reviews since founding.`,
+    h1:           'Real Reviews from Real NuggMD Patients',
+    h2Reviews:    'What Patients Are Saying',
+    h2Faq:        'Common Questions About NuggMD',
+    h2Cta:        'Ready to Get Your Medical Card?',
+    heroP:        'NuggMD is America\'s most trusted telemedicine platform for medical cannabis evaluations. Join over 1.3 million patients who\'ve gotten their card online — fast, private, and HIPAA-compliant.',
+    reviewsP:     'Thousands of patients trust NuggMD for fast, professional, and compassionate medical cannabis evaluations.',
+    faqP:         'Everything you need to know before getting your medical cannabis card online.',
+    howItWorksP:  'Get your medical cannabis card in three simple steps — completely online.',
+    step1P:       'Answer a few health questions, upload your ID, and complete payment — all in minutes.',
+    step2P:       'Connect face-to-face with a licensed physician via secure video. Most visits take under 10 minutes.',
+    step3P:       'Receive your recommendation and state registration instructions immediately. No approval, no charge.',
+    statesP:      'Select your state to view state-specific FAQs, eligibility requirements, and card renewal information.',
+    ctaP:         'Join over 1.3 million patients who\'ve trusted NuggMD for fast, secure, and compassionate medical cannabis evaluations. You only pay if approved.',
+    ctaFooter:    'Available 8 AM – 10 PM daily  ·  HIPAA Compliant  ·  No approval = No charge',
   },
   'blue-red': {
-    metaTitle: 'NuggMD Reviews | Verified Patient Testimonials Across 28 States',
-    metaDesc:  `Verified NuggMD patient reviews across Google, Trustpilot, and BBB — ${verifiedDisplay} testimonials and a 4.9★ average across 28 states. HIPAA-compliant telemedicine.`,
-    h1:        'Verified NuggMD Patient Reviews',
-    h2Reviews: 'Hear Directly From Our Patients',
-    h2Faq:     'Frequently Asked Questions About NuggMD',
-    h2Cta:     'Join Over 1.3 Million Patients Nationwide',
+    metaTitle:    'NuggMD Reviews | Verified Patient Testimonials Across 28 States',
+    metaDesc:     `Verified NuggMD patient reviews across Google, Trustpilot, and BBB — ${verifiedDisplay} testimonials and a 4.9★ average across 28 states. HIPAA-compliant telemedicine.`,
+    h1:           'Verified NuggMD Patient Reviews',
+    h2Reviews:    'Hear Directly From Our Patients',
+    h2Faq:        'Frequently Asked Questions About NuggMD',
+    h2Cta:        'Join Over 1.3 Million Patients Nationwide',
+    heroP:        'NuggMD connects patients with state-licensed physicians for medical cannabis evaluations entirely online. Over 1.3 million approvals across 28 states — secure, HIPAA-compliant, and available today.',
+    reviewsP:     'Browse verified testimonials from NuggMD patients across Google, Trustpilot, and BBB — real experiences from real people in 28 states.',
+    faqP:         'Have questions about the process, pricing, or eligibility? Find answers to the most common questions about NuggMD below.',
+    howItWorksP:  'NuggMD\'s telemedicine process is straightforward: register, see a licensed doctor, and receive your recommendation — no office visit required.',
+    step1P:       'Create your account, complete a brief health intake, and submit your ID for verification — takes under five minutes.',
+    step2P:       'A state-licensed physician reviews your intake and meets with you via encrypted video. Most consultations are completed in under ten minutes.',
+    step3P:       'If approved, your physician\'s recommendation is issued immediately along with step-by-step instructions for completing your state registration.',
+    statesP:      'NuggMD operates in 28 states. Choose yours below to see local requirements, qualifying conditions, and renewal details.',
+    ctaP:         'NuggMD has helped over 1.3 million patients get their medical cannabis card online. Board-certified physicians, same-day recommendations, and a no-approval-no-charge guarantee.',
+    ctaFooter:    'Appointments available 8 AM – 10 PM  ·  Encrypted & HIPAA-compliant  ·  No charge without approval',
   },
   light: {
-    metaTitle: 'NuggMD Patient Testimonials | Real Experiences from Verified Patients',
-    metaDesc:  `${verifiedDisplay} real patient testimonials for NuggMD telemedicine — HIPAA-compliant medical cannabis evaluations available in 28 states. See what patients are saying on Google, Trustpilot, and BBB.`,
-    h1:        'What NuggMD Patients Are Saying',
-    h2Reviews: 'Patient Testimonials by Platform',
-    h2Faq:     'Have Questions About NuggMD?',
-    h2Cta:     'Start Your Medical Card Application',
+    metaTitle:    'NuggMD Patient Testimonials | Real Experiences from Verified Patients',
+    metaDesc:     `${verifiedDisplay} real patient testimonials for NuggMD telemedicine — HIPAA-compliant medical cannabis evaluations available in 28 states. See what patients are saying on Google, Trustpilot, and BBB.`,
+    h1:           'What NuggMD Patients Are Saying',
+    h2Reviews:    'Patient Testimonials by Platform',
+    h2Faq:        'Have Questions About NuggMD?',
+    h2Cta:        'Start Your Medical Card Application',
+    heroP:        'Millions of patients have trusted NuggMD to connect them with a licensed doctor for their medical cannabis evaluation. Fast appointments, same-day recommendations, and no charge if you\'re not approved.',
+    reviewsP:     'Every review below comes from a verified NuggMD patient. See what people are saying about their experience getting a medical cannabis card online.',
+    faqP:         'Curious about how NuggMD works or whether you qualify? Here are answers to the questions patients ask most.',
+    howItWorksP:  'Getting your medical cannabis card through NuggMD takes about 15 minutes from start to finish. Here\'s exactly what to expect.',
+    step1P:       'Fill out a short health questionnaire and upload a photo of your ID. Most patients finish this step in under five minutes.',
+    step2P:       'You\'ll meet with a real, licensed doctor over secure video. It\'s a quick, friendly conversation — most visits are done in ten minutes or less.',
+    step3P:       'Once approved, you\'ll get your recommendation right away with clear instructions for registering with your state. If you\'re not approved, you don\'t pay a cent.',
+    statesP:      'Medical cannabis laws vary by state. Select yours to learn about qualifying conditions, costs, and what to expect in your area.',
+    ctaP:         'Thousands of patients get their medical cannabis recommendation through NuggMD every month. The process is simple, the doctors are great, and you only pay if you\'re approved.',
+    ctaFooter:    'Doctors available daily 8 AM – 10 PM  ·  Private & HIPAA-compliant  ·  Pay only if approved',
   },
 }[variant] ?? {} as any;
 
@@ -86,7 +116,7 @@ const aggregateRatingSchema = {
         {copy.h1}
       </h1>
       <p class="text-nugg-tint text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-        NuggMD is America's most trusted telemedicine platform for medical cannabis evaluations. Join over 1.3 million patients who've gotten their card online — fast, private, and HIPAA-compliant.
+        {copy.heroP}
       </p>
 
       <!-- Star rating display -->
@@ -152,7 +182,7 @@ const aggregateRatingSchema = {
       <div class="text-center mb-10">
         <h2 class="mb-3">{copy.h2Reviews}</h2>
         <p class="text-nugg-tint max-w-xl mx-auto">
-          Thousands of patients trust NuggMD for fast, professional, and compassionate medical cannabis evaluations.
+          {copy.reviewsP}
         </p>
       </div>
 
@@ -176,7 +206,7 @@ const aggregateRatingSchema = {
       <div class="text-center mb-10">
         <h2 class="mb-3">{copy.h2Faq}</h2>
         <p class="text-nugg-tint max-w-xl mx-auto">
-          Everything you need to know before getting your medical cannabis card online.
+          {copy.faqP}
         </p>
       </div>
 
@@ -200,7 +230,7 @@ const aggregateRatingSchema = {
       <div class="text-center mb-12">
         <h2 class="mb-3">How NuggMD Works</h2>
         <p class="text-nugg-tint max-w-xl mx-auto">
-          Get your medical cannabis card in three simple steps — completely online.
+          {copy.howItWorksP}
         </p>
       </div>
 
@@ -209,21 +239,21 @@ const aggregateRatingSchema = {
           <div class="w-14 h-14 rounded-full bg-nugg-blue text-white text-2xl font-bold flex items-center justify-center mx-auto mb-4">1</div>
           <h3 class="text-nugg-blue mb-2">Register Online</h3>
           <p class="text-nugg-text text-sm">
-            Answer a few health questions, upload your ID, and complete payment — all in minutes.
+            {copy.step1P}
           </p>
         </div>
         <div class="text-center p-6 card">
           <div class="w-14 h-14 rounded-full bg-nugg-blue text-white text-2xl font-bold flex items-center justify-center mx-auto mb-4">2</div>
           <h3 class="text-nugg-blue mb-2">See a Doctor</h3>
           <p class="text-nugg-text text-sm">
-            Connect face-to-face with a licensed physician via secure video. Most visits take under 10 minutes.
+            {copy.step2P}
           </p>
         </div>
         <div class="text-center p-6 card">
           <div class="w-14 h-14 rounded-full bg-nugg-red text-white text-2xl font-bold flex items-center justify-center mx-auto mb-4">3</div>
           <h3 class="text-nugg-blue mb-2">Get Approved</h3>
           <p class="text-nugg-text text-sm">
-            Receive your recommendation and state registration instructions immediately. No approval, no charge.
+            {copy.step3P}
           </p>
         </div>
       </div>
@@ -247,7 +277,7 @@ const aggregateRatingSchema = {
       <div class="text-center mb-10">
         <h2 class="mb-3">Available in 28 States</h2>
         <p class="text-nugg-tint max-w-xl mx-auto">
-          Select your state to view state-specific FAQs, eligibility requirements, and card renewal information.
+          {copy.statesP}
         </p>
       </div>
 
@@ -280,7 +310,7 @@ const aggregateRatingSchema = {
     <div class="container-site max-w-2xl mx-auto">
       <h2 class="text-white mb-4">{copy.h2Cta}</h2>
       <p class="text-nugg-tint text-lg mb-8 leading-relaxed">
-        Join over 1.3 million patients who've trusted NuggMD for fast, secure, and compassionate medical cannabis evaluations. You only pay if approved.
+        {copy.ctaP}
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
@@ -293,7 +323,7 @@ const aggregateRatingSchema = {
         </a>
       </div>
       <p class="text-nugg-tint text-sm mt-5 opacity-80">
-        Available 8 AM – 10 PM daily &nbsp;·&nbsp; HIPAA Compliant &nbsp;·&nbsp; No approval = No charge
+        {copy.ctaFooter}
       </p>
     </div>
   </section>
