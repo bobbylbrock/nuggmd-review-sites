@@ -59,6 +59,14 @@ html[data-variant="light"] .border-white                { border-color: #6b7280 
 html[data-variant="light"] .hover\:bg-white:hover       { background-color: #f8fafc !important; }
 html[data-variant="light"] .hover\:text-nugg-dark:hover { color: #404040 !important; }
 
+/* Light variant: header keeps a solid blue background so white nav links stay visible */
+html[data-variant="light"] header                 { background-color: var(--nugg-blue); }
+html[data-variant="light"] header .text-white     { color: #ffffff !important; }
+
+/* Light variant: restore white text/tint inside blue-background sections */
+html[data-variant="light"] .bg-nugg-blue .text-nugg-tint { color: #ffffff; }
+html[data-variant="light"] .bg-nugg-blue.text-white      { color: #ffffff !important; }
+
 
 /* ============================================================
    FONT DECLARATIONS

@@ -1,5 +1,9 @@
 ---
 const year = new Date().getFullYear();
+const variant = import.meta.env.PUBLIC_SITE_VARIANT ?? 'primary';
+const logoSrc = variant === 'light'
+  ? 'https://www.nuggmd.com/wp-content/uploads/2024/08/NuggMD-Logos-_Full-Logo-Solid-Blue.png'
+  : 'https://www.nuggmd.com/wp-content/uploads/2023/05/NuggMD-White.webp';
 ---
 
 <footer class="bg-nugg-dark text-white pt-10 pb-6 mt-auto">
@@ -10,7 +14,7 @@ const year = new Date().getFullYear();
       <div class="flex flex-col gap-2">
         <a href="/" aria-label="NuggMD Reviews Home">
           <img
-            src="https://www.nuggmd.com/wp-content/uploads/2023/05/NuggMD-White.webp"
+            src={logoSrc}
             alt="NuggMD"
             width="120"
             height="31"
