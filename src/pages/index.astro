@@ -127,6 +127,56 @@ const aggregateRatingSchema = {
       </a>
     </div>
   </section>
+  ) : variant === 'light' ? (
+  <section class="bg-nugg-dark text-white py-20 px-4">
+    <div class="container-site">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <!-- Left: copy -->
+        <div>
+          <div class="inline-flex items-center gap-2 bg-nugg-shade rounded-full px-4 py-2 mb-6">
+            <span class="text-nugg-red text-sm font-semibold">★ Verified Patient Reviews</span>
+          </div>
+          <h1 class="text-white mb-4">
+            {copy.h1}
+          </h1>
+          <p class="text-nugg-tint text-lg mb-8 leading-relaxed">
+            {copy.heroP}
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="https://app.nuggmd.com/v2/signup/email?promo_code=TRYME20&utm_campaign=reviewlandingpages"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary text-base px-8 py-4"
+            >
+              Get 20% Off — Use Code TRYME20
+            </a>
+            <a href="/reviews/" class="text-base px-8 py-4 inline-block font-bold border-2 border-white text-white rounded-brand hover:bg-white hover:text-nugg-dark transition-colors duration-200">
+              Read All Reviews
+            </a>
+          </div>
+        </div>
+        <!-- Right: rating + trust points -->
+        <div class="flex flex-col gap-6">
+          <div class="flex items-center gap-4">
+            <StarRating rating={4.9} size="lg" />
+            <div>
+              <p class="text-white font-bold text-2xl">4.9 / 5</p>
+              <p class="text-nugg-tint">{verifiedDisplay} verified reviews</p>
+            </div>
+          </div>
+          <div class="bg-nugg-shade rounded-brand p-6">
+            <ul class="space-y-3 text-nugg-tint">
+              <li>✓ No approval = No charge</li>
+              <li>✓ Results in as little as 15 minutes</li>
+              <li>✓ HIPAA-compliant telemedicine</li>
+              <li>✓ Licensed physicians in 31 states</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   ) : (
   <section class="bg-nugg-dark text-white py-20 px-4 relative overflow-hidden">
     <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 70% 50%, #52B781 0%, transparent 60%), radial-gradient(circle at 20% 80%, #1E4A7D 0%, transparent 50%);"></div>
