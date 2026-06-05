@@ -7,8 +7,51 @@ const navLinks = [
 ];
 
 const currentPath = Astro.url.pathname;
+const variant = import.meta.env.PUBLIC_SITE_VARIANT ?? 'primary';
 ---
 
+{variant === 'light' ? (
+<header class="bg-nugg-blue shadow-md">
+  <div class="container-site">
+    <!-- Centered logo -->
+    <div class="flex justify-center pt-4 pb-2">
+      <a href="/" aria-label="NuggMD Reviews - Home">
+        <img
+          src="https://www.nuggmd.com/wp-content/uploads/2023/05/NuggMD-White.webp"
+          alt="NuggMD"
+          width="140"
+          height="36"
+          loading="eager"
+          class="h-9 w-auto"
+        />
+      </a>
+    </div>
+    <!-- Links below logo -->
+    <nav class="flex items-center justify-center gap-6 pb-3 flex-wrap" aria-label="Main navigation">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`text-sm font-semibold transition-colors duration-150 ${
+            currentPath === link.href || currentPath.startsWith(link.href) && link.href !== '/'
+              ? 'text-nugg-red'
+              : 'text-white hover:text-nugg-tint'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="https://app.nuggmd.com/v2/signup/email?promo_code=TRYME20&utm_campaign=reviewlandingpages"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary text-sm"
+      >
+        Get Your Card
+      </a>
+    </nav>
+  </div>
+</header>
+) : (
 <header class="bg-nugg-dark shadow-md sticky top-0 z-50">
   <div class="container-site">
     <nav class="flex items-center justify-between py-3 gap-4" aria-label="Main navigation">
@@ -82,3 +125,4 @@ const currentPath = Astro.url.pathname;
     </div>
   </div>
 </header>
+)}
