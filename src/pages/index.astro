@@ -84,6 +84,12 @@ const copy = {
   },
 }[variant] ?? {} as any;
 
+const reviewGridCols = variant === 'blue-red'
+  ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'
+  : variant === 'light'
+    ? 'grid grid-cols-1 md:grid-cols-2 gap-6'
+    : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
+
 const aggregateRatingSchema = {
   '@context': 'https://schema.org',
   '@type': 'AggregateRating',
@@ -256,7 +262,7 @@ const aggregateRatingSchema = {
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class={reviewGridCols}>
         {featuredReviews.map((review) => (
           <ReviewCard review={review} />
         ))}

@@ -22,6 +22,12 @@ export async function getStaticPaths({ paginate }) {
 }
 
 const variant = import.meta.env.PUBLIC_SITE_VARIANT ?? 'primary';
+const reviewGridCols = variant === 'blue-red'
+  ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-10'
+  : variant === 'light'
+    ? 'grid grid-cols-1 md:grid-cols-2 gap-6 mb-10'
+    : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10';
+
 const { page } = Astro.props;
 const reviews = page.data;
 const totalReviews = allReviews.length;
@@ -148,7 +154,7 @@ const reviewListSchema = {
   <!-- Reviews grid -->
   <section class="section-white py-16 px-4">
     <div class="container-site">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10" itemscope itemtype="https://schema.org/ItemList">
+      <div class={`${reviewGridCols}`} itemscope itemtype="https://schema.org/ItemList">
         {reviews.map((review) => (
           <ReviewCard review={review} />
         ))}
