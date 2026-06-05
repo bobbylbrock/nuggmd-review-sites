@@ -62,6 +62,9 @@ html[data-variant="light"] .hover\:text-nugg-dark:hover { color: #404040 !import
 /* Light variant: allow white text within the header's blue background */
 html[data-variant="light"] header .text-white     { color: #ffffff !important; }
 
+/* Light variant: footer quick links */
+html[data-variant="light"] footer .text-nugg-block1 { color: #d46870; }
+
 /* Light variant: restore white text/tint inside blue-background sections */
 html[data-variant="light"] .bg-nugg-blue .text-nugg-tint { color: #ffffff; }
 html[data-variant="light"] .bg-nugg-blue.text-white      { color: #ffffff !important; }
