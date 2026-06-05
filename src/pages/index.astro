@@ -11,7 +11,7 @@ const variant = import.meta.env.PUBLIC_SITE_VARIANT ?? 'primary';
 // Featured reviews: primary = first 6, blue-red = highest rated, light = first 6 with text body
 let featuredReviews;
 if (variant === 'blue-red') {
-  featuredReviews = [...reviews].sort((a, b) => b.rating - a.rating || new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 6);
+  featuredReviews = [...reviews].sort((a, b) => b.rating - a.rating || new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 8);
 } else if (variant === 'light') {
   featuredReviews = reviews.filter((r) => r.body?.trim()).slice(0, 6);
 } else {
