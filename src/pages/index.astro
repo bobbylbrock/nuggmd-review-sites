@@ -92,16 +92,16 @@ const reviewGridCols = variant === 'blue-red'
 
 const aggregateRatingSchema = {
   '@context': 'https://schema.org',
-  '@type': 'AggregateRating',
-  itemReviewed: {
-    '@type': 'Organization',
-    name: 'NuggMD',
-    url: 'https://www.nuggmd.com',
+  '@type': 'Organization',
+  name: 'NuggMD',
+  url: 'https://www.nuggmd.com',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: String(verifiedCount),
+    bestRating: '5',
+    worstRating: '1',
   },
-  ratingValue: '4.9',
-  reviewCount: String(verifiedCount),
-  bestRating: '5',
-  worstRating: '1',
 };
 ---
 

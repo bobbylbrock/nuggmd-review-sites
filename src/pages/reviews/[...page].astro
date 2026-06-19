@@ -76,28 +76,26 @@ const pageDesc = isFirst
 
 const reviewListSchema = {
   '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'NuggMD Patient Reviews',
-  numberOfItems: totalReviews,
-  itemListElement: reviews.map((review, index) => ({
-    '@type': 'ListItem',
-    position: (page.currentPage - 1) * 50 + index + 1,
-    item: {
-      '@type': 'Review',
-      reviewBody: review.body,
-      datePublished: review.date,
-      author: { '@type': 'Person', name: review.author },
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: review.rating,
-        bestRating: 5,
-        worstRating: 1,
-      },
-      itemReviewed: {
-        '@type': 'Organization',
-        name: 'NuggMD',
-        url: 'https://www.nuggmd.com',
-      },
+  '@type': 'Organization',
+  name: 'NuggMD',
+  url: 'https://www.nuggmd.com',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: avgRating,
+    reviewCount: String(totalReviews),
+    bestRating: '5',
+    worstRating: '1',
+  },
+  review: reviews.map((review) => ({
+    '@type': 'Review',
+    reviewBody: review.body,
+    datePublished: review.date,
+    author: { '@type': 'Person', name: review.author },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: review.rating,
+      bestRating: 5,
+      worstRating: 1,
     },
   })),
 };
