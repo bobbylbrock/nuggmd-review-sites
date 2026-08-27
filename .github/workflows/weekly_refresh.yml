@@ -3,7 +3,8 @@ name: Weekly Review Refresh
 on:
   schedule:
     # Every Monday at 8 AM CDT (13:00 UTC)
-    - cron: '0 13 * * 1'
+    - cron: '0 13 * * 1'   # Monday 9 AM ET
+    - cron: '0 15 * * 1'   # fallback +2h
   workflow_dispatch:
 
 permissions:
