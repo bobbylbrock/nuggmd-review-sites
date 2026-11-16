@@ -121,6 +121,17 @@
     "verified": true
   },
   {
+    "id": "trustpilot:6afb6c61ffca9c5442580eb9",
+    "body": "Dr. Was very understanding and made me feel comfortable",
+    "rating": 5.0,
+    "author": "Jesse Gonzales",
+    "date": "2026-11-16",
+    "platform": "Trustpilot",
+    "location": "NuggMD",
+    "url": "https://www.trustpilot.com/reviews/6afb6c61ffca9c5442580eb9",
+    "verified": true
+  },
+  {
     "id": "trustpilot:6af9be8088e5da213286c4a9",
     "body": "It was very simple and every one was very patient and kind",
     "rating": 5.0,
